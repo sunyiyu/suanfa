@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>金克斯的迫击炮！</title>
+</head>
+<body>
+<h2>实现一个摧毁(destroyer)函数，第一个参数是待摧毁的数组，其余的参数是待摧毁的值。</h2>
+<ol>
+    <li>函数中的有隐式的不确定个数的参数，而我们在函数中将会用到它，很显然，这需要我们在  arguments 上做文章了。我们来看看MDN是怎么解释  arguments 的：</li>
+    <li>arguments 是一个类数组对象。代表传给一个function的参数列表。</li>
+    <li>很显然，既然是类数组对象，说明它不是真正的数组，没有数组所具有的属性和方法（除了  length 属性）。为了便于我们接下来的运算，我们需要把arr后面的待摧毁的所有参数放进一个数组： </li>
+</ol>
+<script>
+    function destroyer(arr) {
+        var arg = [];
+        for(var i=0; i<arguments.length; i++){
+            arg.push(arguments[i]);
+        }
+        var temp = arr.filter(function(item){
+            return arg.indexOf(item) < 0;
+        });
+        console.log(temp);
+    }
+
+    destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+</script>
+</body>
+</html>

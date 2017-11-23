@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>检查一个字符串(str)是否以指定的字符串(target)结尾。</title>
+</head>
+<body>
+<h3>检查一个字符串(str)是否以指定的字符串(target)结尾。</h3>
+<h3>如果是，返回true;如果不是，返回false。</h3>
+<script>
+    //一
+    function confirmEnding(str, target) {
+        if ( str.substr(str.length-target.length , str.length) === target) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    confirmEnding("Bastian", "n");
+
+    //二
+    function confirmEnding(str, target) {
+        if ( str.slice(str.length-target.length , str.length) === target) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    confirmEnding("Bastian", "n");
+
+    //三
+    function confirmEnding(str, target) {
+        if ( str.substring(str.length-target.length , str.length) === target) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    confirmEnding("Bastian", "n");
+
+</script>
+
+
+<p>
+    三种方法都是截取字符串指定字段，其中slice()和substring()接收的是起始位置和结束位置(不包括结束位置)，而substr接收的则是起始位置和所要返回的字符串长度.
+
+    还有在对负值的处理上，slice()会将它字符串的长度与对应的负数相加，结果作为参数；substr()则仅仅是将第一个参数与字符串长度相加后的结果作为第一个参数；substring()则干脆将负参数都直接转换为0。
+</p>
+</body>
+</html>

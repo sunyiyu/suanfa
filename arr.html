@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>比较两个数组，然后返回一个新数组，该数组的元素为两个给定数组中所有独有的数组元素。换言之，返回两个数组的差异。</p>
+<script>
+    function diff(arr1, arr2) {
+        var newArr = [];
+
+        var arr111 = arr1.filter((a) =>{
+            return arr2.indexOf(a) === -1;
+        });
+
+        var arr222 = arr2.filter((b) =>{
+            return arr1.indexOf(b) === -1;
+        });
+
+        newArr = arr111.concat(arr222);
+        return newArr;
+    }
+
+    diff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+</script>
+</body>
+</html>

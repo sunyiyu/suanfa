@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>截断数组</title>
+</head>
+<body>
+<p>
+    返回一个数组被截断n个元素后还剩余的元素，截断从索引0开始。
+</p>
+<p>
+    splice(index,howMany); howMany长度；
+</p>
+<script>
+    function slasher(arr, howMany) {
+        arr.splice(0,howMany);
+        return arr;
+    }
+
+    slasher([1, 2, 3], 2);
+</script>
+</body>
+</html>

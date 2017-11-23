@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sumAll(arr) {
+        var sum=0;
+        if(arr[0]<arr[1]){
+            for(var i=arr[0];i<=arr[1];i++){
+                sum += i;
+            }
+        }else{
+            for(var k=arr[1];k<=arr[0];k++){
+                sum += k;
+            }
+        }
+
+        console.log(sum);
+
+    }
+
+    sumAll([1, 4]);
+</script>
+</body>
+</html>

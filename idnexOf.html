@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>比较字符串</title>
+</head>
+<body>
+<p>
+    如果数组第一个字符串元素包含了第二个字符串元素的所有字符，函数返回true。<br>
+
+    举例，["hello", "Hello"]应该返回true，因为在忽略大小写的情况下，第二个字符串的所有字符都可以在第一个字符串找到。<br>
+
+    ["hello", "hey"]应该返回false，因为字符串"hello"并不包含字符"y"。<br>
+
+    ["Alien", "line"]应该返回true，因为"line"中所有字符都可以在"Alien"找到
+</p>
+<ol>
+   <li>将目标字符串(数组中的第一个元素arr[0])和测试字符串(数组中的第二个元素arr[1])转换为小写字符串(通过toLowerCase())</li>
+   <li>将数组中的两个元素分别转换为数组(通过split())</li>
+   <li>使用for循环将测试字符串每个字符传入到目标字符串中搜索(通过indexOf())</li>
+   <li>如果搜索传回值为负数，也就是indexOf()传来的值为-1，则返回false，也就是说测试字符串在目标字符串中没有匹配的字符串</li>
+   <li>若全部字符串匹配(indexOf()的值大于或等于0)，返回true</li>
+</ol>
+<script>
+    function mutation(arr) {
+        // 请把你的代码写在这里
+        var a = arr[0].toLowerCase().split('');
+        var b = arr[1].toLowerCase().split('');
+
+        for(var i=0; i<b.length; i++){
+            var str = a.indexOf(b[i]);
+            if(str == -1){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    mutation(["hello", "hey"]);
+
+</script>
+</body>
+</html>

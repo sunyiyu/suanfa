@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    var lat, lon;
+    var arr = [];
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            console.log(position);
+            lat = Math.round(position.coords.latitude);
+            lon = Math.round(position.coords.longitude);
+            var api = 'http://api.openweathermap.org/data/2.5/weather?' + "lat=" + lat + "&lon=" + lon + "&units=metric&appid=86e8744e87c5dc3b51370144a2d7df8b";
+             //console.log(api);  //API 字符串
+            $.getJSON(api, function(data) {
+                console.log(data.name);  //城市名
+            });
+        });
+    }
+</script>
+</body>
+</html>
